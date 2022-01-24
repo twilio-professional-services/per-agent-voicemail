@@ -1,0 +1,34 @@
+{
+  "task_routing": {
+    "filters": [
+      {
+        "filter_friendly_name": "Direct Call to agent",
+        "expression": "type == 'directCall'",
+        "targets": [
+          {
+            "queue": "Direct Call",
+            "expression": "worker.workerExtension == task.workerExtension",
+            "timeout": 1,
+            "skip_if": "workers.available == 0"
+          },
+          {
+            "queue": "Voicemail"
+          }
+        ]
+      },
+      {
+        "filter_friendly_name": "Voicemail Listen",
+        "expression": "type == 'voicemailListen'",
+        "targets": [
+          {
+            "queue": "Direct Call",
+            "known_worker_sid": "task.workerSID"
+          }
+        ]
+      }
+    ],
+    "default_filter": {
+      "queue": "Everyone"
+    }
+  }
+}
