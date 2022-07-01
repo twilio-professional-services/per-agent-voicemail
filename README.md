@@ -142,7 +142,7 @@ Note: Below friendly names are used for easy reference, but in the actual JSON t
 - Clone repo to your local environment
 
 ```bash
-git clone https://code.hq.twilio.com/twilio/plugin-per-agent-voicemail.git
+git clone https://github.com/twilio-professional-services/per-agent-voicemail.git
 ```
 
 - Modify Environmental variables
